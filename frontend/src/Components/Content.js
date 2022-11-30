@@ -1,80 +1,37 @@
 import Container from "react-bootstrap/esm/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Post from "./Posts";
-import { useState } from "react";
-
+import PostsDisplay from "./PostsDisplay";
+import { Link, Route, Routes } from "react-router-dom";
 
 const Content = () => {
-
-    const postSchema = [
-      { type: "Selling", name: "Adrian", text: "I am here to sell ...." },
-      {
-        type: "Selling",
-        name: "Adrian2",
-        text: "I am here to sell ....",
-      },
-      {
-        type: "Selling",
-        name: "Adrian3",
-        text: "I am here to sell ....",
-      },
-      {
-        type: "Selling",
-        name: "Adrian4",
-        text: "I am here to sell ....",
-      },
-     
-    ];
-    const [post , setPost] = useState(postSchema)
-
   return (
     <>
       <Container
         fluid
         style={{ height: "91%" }}
-        className="bg-dark d-inline-block "
+        className="bg-dark d-inline-block  "
       >
-        <Row className="bg-dark text-secondary h-100">
-          <Col
-            md="3"
-            className="d-flex justify-content-center align-items-center flex-column border border-white"
-          >
-            <a className="btn btn-dark" href="">
-              Account
-            </a>
-            <h1>Points</h1>
-            <a className="btn btn-dark" href="">
-              Posts
-            </a>
-            <a className="btn btn-dark" href="">
-              Logout
-            </a>
-          </Col>
-          <Col
-            md="7"
-            className="p-5 d-flex flex-column-reverse border border-white"
-          >
-            {" "}
-            {post.map((element) => {
-              return <Post props={element} />;
-            })}
-          </Col>
+        <Row className="bg-dark text-secondary h-100 ">
           <Col
             md="2"
-            className="d-flex flex-column border border-white gap-5 justify-content-center  align-items-start"
+            className="d-md-flex justify-content-center align-items-center flex-column border-top border-white d-none order-md-3 gap-2"
           >
-            <a href="" className="btn btn-dark fs-3">
-              Selling
-            </a>
-            <a href="" className="btn btn-dark fs-3">
-              {" "}
-              Buying
-            </a>
-            <a href="" className="btn btn-dark fs-3">
-              Trade
-            </a>
+            <h1 className="fs-2 ">Hello Name</h1>
+            <h2>Points: 100</h2>
+            <Link className="btn btn-dark fs-3" href="">
+              Posts
+            </Link>
+            <Link className="btn btn-dark fs-3" href="">
+              Logout
+            </Link>
           </Col>
+          <Routes>
+            <Route path="/leagueoflegends" element={<PostsDisplay />} />
+            <Route path="/metin2" element={<PostsDisplay />} />
+            <Route path="/counterstrike" element={<PostsDisplay />} />
+            <Route path="/dota2" element={<PostsDisplay />} />
+          </Routes>
         </Row>
       </Container>
     </>

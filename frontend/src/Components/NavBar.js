@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -31,13 +32,21 @@ const NavBar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-center flex-grow-1 gap-md-5 ">
-              <Nav.Link href="/">League of legends</Nav.Link>
-              <Nav.Link href="/metin2">Metin2</Nav.Link>
-              <Nav.Link href="/counterstrike">CounterStrike</Nav.Link>
-              <Nav.Link href="/dota2">Dota2</Nav.Link>
+              <Link className="btn btn-dark " to="/leagueoflegends">
+                League of legends
+              </Link>
+              <Link className="btn btn-dark " to="/metin2">
+                Metin2
+              </Link>
+              <Link className="btn btn-dark " to="/counterstrike">
+                CounterStrike
+              </Link>
+              <Link className="btn btn-dark " to="/dota2">
+                Dota2
+              </Link>
             </Nav>
             <Nav className="justify-content-end d-inline-flex    ">
-              <Nav.Link>Login</Nav.Link>
+              <Link className="btn btn-dark ">Login</Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
